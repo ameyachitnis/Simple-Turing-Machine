@@ -1,0 +1,28 @@
+Initial,Halt,Accept,TraverseB,TraverseA,Check Marked
+a,A,b,B,$
+aaabbb$
+Initial,Accept,Halt
+Initial,a,TraverseB,A,1
+Initial,B,Check Marked,$,1
+Initial,$,Accept,$,1
+TraverseB,a,TraverseB,$,1
+TraverseB,B,TraverseB,$,1
+TraverseB,b,TraverseA,B,0
+TraverseA,B,TraverseA,$,0
+TraverseA,a,TraverseA,$,0
+TraverseA,A,Initial,$,1
+Check Marked,$,Accept,$,1
+Check Marked,B,Check Marked,$,1
+
+# Halt at these states #
+# Not necessary, but helpful #
+
+Initial,b,Halt,$,1
+Initial,A,Halt,$,1
+Initial,$,Halt,$,1
+TraverseB,A,Halt,$,1
+TraverseB,$,Halt,$,1
+TraverseA,b,Halt,$,1
+Check Marked,a,Halt,$,1
+Check Marked,A,Halt,$,1
+Check Marked,b,Halt,$,1

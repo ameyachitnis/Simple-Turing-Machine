@@ -1,0 +1,8 @@
+Even,Odd,Accept,Reject
+a,$
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa$
+Even,Accept,Reject
+Even,a,Odd,$,1
+Odd,a,Even,$,1
+Even,$,Accept,$,1
+Odd,$,Reject,$,1

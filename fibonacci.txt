@@ -1,0 +1,96 @@
+Initial,Accept,Halt,Mark 1,Marked 2,Traverse Back,Replace #,(#) Mark Unmarked,Check For #,Replace *,(*) Mark Unmarked,Check For *,Replace %,(%) Mark Unmarked,Check For %,(#) Check All Marked,(#) Traverse Back,(*) Check All Marked,(*) Traverse Back,(%) Check All Marked,(%) Traverse Back
+1,#,*,%,$
+$11111111$
+Initial,Accept,Halt
+
+Initial,$,Initial,$,1
+Initial,1,Mark 1,#,1
+
+Mark 1,$,Accept,$,1
+Mark 1,1,Marked 2,*,1
+
+Marked 2,$,Accept,$,1
+Marked 2,1,Traverse Back,$,0
+
+Traverse Back,#,Traverse Back,$,0
+Traverse Back,*,Traverse Back,$,0
+Traverse Back,%,Traverse Back,$,0
+Traverse Back,$,Replace #,$,1
+
+Replace #,#,(#) Mark Unmarked,%,1
+Replace #,*,Replace #,$,1
+Replace #,%,Replace #,$,1
+
+(#) Mark Unmarked,#,(#) Mark Unmarked,$,1
+(#) Mark Unmarked,*,(#) Mark Unmarked,$,1
+(#) Mark Unmarked,%,(#) Mark Unmarked,$,1
+(#) Mark Unmarked,1,Check For #,*,0
+(#) Mark Unmarked,$,Halt,$,1
+
+Check For #,*,Check For #,$,0
+Check For #,%,Check For #,$,0
+Check For #,#,(#) Mark Unmarked,%,1
+Check For #,$,(#) Check All Marked,$,1
+
+(#) Check All Marked,#,(#) Check All Marked,$,1
+(#) Check All Marked,*,(#) Check All Marked,$,1
+(#) Check All Marked,%,(#) Check All Marked,$,1
+(#) Check All Marked,$,Accept,$,1
+(#) Check All Marked,1,(#) Traverse Back,$,0
+
+(#) Traverse Back,#,(#) Traverse Back,$,0
+(#) Traverse Back,*,(#) Traverse Back,$,0
+(#) Traverse Back,%,(#) Traverse Back,$,0
+(#) Traverse Back,$,Replace *,$,1
+
+Replace *,#,Replace *,$,1
+Replace *,%,Replace *,$,1
+Replace *,*,(*) Mark Unmarked,#,1
+
+(*) Mark Unmarked,#,(*) Mark Unmarked,$,1
+(*) Mark Unmarked,*,(*) Mark Unmarked,$,1
+(*) Mark Unmarked,%,(*) Mark Unmarked,$,1
+(*) Mark Unmarked,1,Check For *,%,0
+(*) Mark Unmarked,$,Halt,$,1
+
+Check For *,#,Check For *,$,0
+Check For *,%,Check For *,$,0
+Check For *,*,(*) Mark Unmarked,#,1
+Check For *,$,(*) Check All Marked,$,1
+
+(*) Check All Marked,#,(*) Check All Marked,$,1
+(*) Check All Marked,*,(*) Check All Marked,$,1
+(*) Check All Marked,%,(*) Check All Marked,$,1
+(*) Check All Marked,$,Accept,$,1
+(*) Check All Marked,1,(*) Traverse Back,$,0
+
+(*) Traverse Back,#,(*) Traverse Back,$,0
+(*) Traverse Back,*,(*) Traverse Back,$,0
+(*) Traverse Back,%,(*) Traverse Back,$,0
+(*) Traverse Back,$,Replace %,$,1
+
+Replace %,#,Replace %,%,1
+Replace %,*,Replace %,$,1
+Replace %,%,(%) Mark Unmarked,*,1
+
+(%) Mark Unmarked,#,(%) Mark Unmarked,$,1
+(%) Mark Unmarked,*,(%) Mark Unmarked,$,1
+(%) Mark Unmarked,%,(%) Mark Unmarked,$,1
+(%) Mark Unmarked,1,Check For %,#,0
+(%) Mark Unmarked,$,Halt,$,1
+
+Check For %,#,Check For %,$,0
+Check For %,*,Check For %,$,0
+Check For %,%,(%) Mark Unmarked,*,1
+Check For %,$,(%) Check All Marked,$,1
+
+(%) Check All Marked,#,(%) Check All Marked,$,1
+(%) Check All Marked,*,(%) Check All Marked,$,1
+(%) Check All Marked,%,(%) Check All Marked,$,1
+(%) Check All Marked,$,Accept,$,1
+(%) Check All Marked,1,(%) Traverse Back,$,0
+
+(%) Traverse Back,#,(%) Traverse Back,$,0
+(%) Traverse Back,*,(%) Traverse Back,$,0
+(%) Traverse Back,%,(%) Traverse Back,$,0
+(%) Traverse Back,$,Replace #,$,1

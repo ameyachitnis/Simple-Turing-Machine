@@ -1,0 +1,28 @@
+Initial,Accept,Halt,Trav End A,Trav End B,End Check A,End Check B,Back To Start
+a,b,$,# represents read characters
+aaaabaaaa$
+Initial,Accept,Halt
+Initial,a,Trav End A,#,1
+Initial,b,Trav End B,#,1
+Initial,#,Accept,$,1
+Initial,$,Accept,$,1
+Trav End A,a,Trav End A,$,1
+Trav End A,b,Trav End A,$,1
+Trav End A,$,End Check A,$,0
+Trav End A,#,End Check A,$,0
+Trav End B,a,Trav End B,$,1
+Trav End B,b,Trav End B,$,1
+Trav End B,$,End Check B,$,0
+Trav End B,#,End Check B,$,0
+End Check A,a,Back To Start,#,0
+End Check A,b,Halt,$,0
+End Check A,$,Halt,$,0
+End Check A,#,Accept,$,0
+End Check B,b,Back To Start,#,0
+End Check B,a,Halt,$,0
+End Check B,$,Halt,$,0
+End Check B,#,Accept,$,0
+Back To Start,a,Back To Start,$,0
+Back To Start,b,Back To Start,$,0
+Back To Start,$,Initial,$,1
+Back To Start,#,Initial,$,1

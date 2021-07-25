@@ -1,0 +1,66 @@
+Initial,Halt,Accept,TraverseB,TraverseC,TraverseA,Check Marked
+a,A,b,B,c,C,$
+aaabbbccc$
+Initial,Accept,Halt
+
+# Initial: Check for a's     #
+# Traverse to b if so        #
+# If end, its good           #
+# Check if all marked if not #
+
+Initial,a,TraverseB,A,1
+Initial,B,Check Marked,$,1
+Initial,$,Accept,$,1
+
+# Travese to B               #
+# If b seen, mark, go to c   #
+
+TraverseB,a,TraverseB,$,1
+TraverseB,B,TraverseB,$,1
+TraverseB,b,TraverseC,B,1
+
+$ Traverse to C              #
+# If c seen, mark, traverse  #
+
+TraverseC,b,TraverseC,$,1
+TraverseC,C,TraverseC,$,1
+TraverseC,c,TraverseA,C,0
+
+# Traverse to A              #
+# If A, change to Initial    #
+
+TraverseA,C,TraverseA,$,0
+TraverseA,b,TraverseA,$,0
+TraverseA,B,TraverseA,$,0
+TraverseA,a,TraverseA,$,0
+TraverseA,A,Initial,$,1
+
+# Check if only B and C's    $
+
+Check Marked,$,Accept,$,1
+Check Marked,B,Check Marked,$,1
+Check Marked,C,Check Marked,$,1
+
+# Halt at these states #
+# Not necessary, but helpful #
+
+Initial,A,Halt,$,0
+Initial,b,Halt,$,0
+Initial,c,Halt,$,0
+Initial,C,Halt,$,0
+
+TraverseB,A,Halt,$,0
+TraverseB,c,Halt,$,0
+TraverseB,C,Halt,$,0
+TraverseB,$,Halt,$,0
+
+TraverseC,B,Halt,$,0
+TraverseC,a,Halt,$,0
+TraverseC,A,Halt,$,0
+TraverseC,$,Halt,$,0
+
+TraverseA,$,Halt,$,0
+
+Check Marked,a,Halt,$,0
+Check Marked,b,Halt,$,0
+Check Marked,c,Halt,$,0
